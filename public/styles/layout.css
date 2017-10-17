@@ -6,6 +6,11 @@
 html {
   box-sizing: border-box;
 }
+
+#wrapper {
+  clear:both;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,12 +19,25 @@ html {
  * Global layout stuff
  */
 
+* {
+  font-family: 'Roboto Condensed', sans-serif;  
+}
+
+main {
+  width: 450px;
+  background: white;
+  margin: 0px auto;
+  padding-top: 140px;
+}
+
 body {
-  margin: 0;
   color: #244751;
   background-color: #eee;
 }
 
+h1 {
+  margin: 0px;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
