@@ -6,24 +6,61 @@
 
 $(function() {
    
-  var tweetData = {
-    "user": { 
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png", // tweet-user-icon
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+  var data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": {
+          "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+          "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
+          "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+        },
+        "handle": "@SirIsaac"
       },
-      "handle": "@SirIsaac"
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1461116232227
     },
-    "content": { 
-      "text": "If I have seen further it is by standing on the shoulders of giants" // tweet-body TEXT
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": {
+          "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+          "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+          "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+        },
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
     },
-    "created_at": 1461116232227  
+    {
+      "user": {
+        "name": "Johann von Goethe",
+        "avatars": {
+          "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+          "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+          "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+        },
+        "handle": "@johann49"
+      },
+      "content": {
+        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+      },
+      "created_at": 1461113796368
+    }
+  ];
+
+  function renderTweets(tweetsData) {
+    tweetsData.forEach(function (tweet) {
+      $('#tweet-feed').append(createTweetElement(tweet)); 
+    });
   }
 
-
   function createTweetElement(tweetData) {
+    console.log(tweetData);
     var tweet = $(`<article class="new-tweet tweet-post">
       <header class="tweet-user-info">
         <img class="tweet-user-icon" src =${tweetData.user.avatars.regular}>
@@ -48,8 +85,16 @@ $(function() {
     return tweet;
   } 
 
+  renderTweets(data);
 
-var $tweet = createTweetElement(tweetData);
-$('#tweet-feed').append($tweet); 
-console.log($tweet);
+// var $tweet = createTweetElement(tweetData);
+// $('#tweet-feed').append($tweet); 
+// console.log($tweet);
+
+
+  // Define another function renderTweets in the same file. This function can be responsible for taking in an 
+  // array of tweet objects and then appending each one to the #tweets-container. In order to do this, the 
+  // renderTweets will need to leverage the createTweetElement function you wrote earlier by passing to it the 
+  // tweet object, using the returned jQuery object by appending it to the #tweets-container section.
+  
 });
