@@ -8,6 +8,11 @@ article.tweet-post:hover {
   opacity: 1.0;
 }
 
+header .tweet-user-info {
+  height: 80px;
+  width: 100%;
+}
+
 header .tweet-user-icon {
   height: 50px;
   width: 50px;
@@ -25,14 +30,14 @@ header .tweet-author {
   margin-top: 8px;
 }
 
-header .tweet-at-name {
+header .username-handle {
   float: right;
   margin-right: 8px;
   margin-top: 14px;
   color: lightslategray;
 }
 
-.tweet-body {
+div.tweet-body {
   clear: both;
   background: white;
   padding: 18px;
