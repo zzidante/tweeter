@@ -59,4 +59,43 @@ $(function() {
   var compiledTweetTemplate = Handlebars.compile(tweetTemplate);
   $("#tweet-feed").html(compiledTweetTemplate(data.reverse()));
 
+  // Prevent Default on Tweet Submit Button
+
+  $(".new-tweet form").submit(function(event) {
+    event.preventDefault();
+    var newTweetForm = this;
+    var newTweetPlainText = $(this).serialize();
+
+    $.ajax({
+      url: "/tweets",
+      method: "post",
+      data: newTweetPlainText
+    }).done(function() {
+      newTweetForm.reset();
+      // add GET request?
+    });
+  });
+
+  // GET tweets
+
+  function loadTweets () {
+    $.ajax({
+      url: "/tweets",
+      method: "get",
+    }).done(function () {
+
+    });
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
 });
