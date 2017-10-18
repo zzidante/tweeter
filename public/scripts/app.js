@@ -4,6 +4,8 @@
 //  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 //  */
 
+// functions
+
 $(function() {
    
   var data = [
@@ -53,39 +55,44 @@ $(function() {
     }
   ];
 
-  function renderTweets(tweetsData) {
-    tweetsData.forEach(function (tweet) {
-      $('#tweet-feed').append(createTweetElement(tweet)); 
-    });
-  }
+  // function renderTweets(tweetsData) {
+  //   tweetsData.forEach(function (tweet) {
+  //     tweetsData.tweet; 
+  //   });
+  // }
 
-  function createTweetElement(tweetData) {
-    console.log(tweetData);
-    var tweet = $(`<article class="new-tweet tweet-post">
-      <header class="tweet-user-info">
-        <img class="tweet-user-icon" src =${tweetData.user.avatars.regular}>
-        <h3 class="tweet-author">${tweetData.user.name}</h3>
-        <h6 class ="username-handle">${tweetData.user.handle}</h6>
-      </header>
+  // function createTweetElement(tweetData) {
+  //   console.log(tweetData);
+  //   var tweet = $(`<article class="new-tweet tweet-post">
+  //     <header class="tweet-user-info">
+  //       <img class="tweet-user-icon" src =${tweetData.user.avatars.regular}>
+  //       <h3 class="tweet-author">${tweetData.user.name}</h3>
+  //       <h6 class ="username-handle">${tweetData.user.handle}</h6>
+  //     </header>
 
-      <div class="tweet-body">
-        <p>${tweetData.content.text}</p>
-      </div>
+  //     <div class="tweet-body">
+  //       <p>${tweetData.content.text}</p>
+  //     </div>
 
-      <footer class="tweet-footer">
-        <p class="post-days-ago">${tweetData.created_at}</p>
-        <div class="mini-icon-group">
-          <img class="mini-click-icons" tag="flag" src="http://simpleicon.com/wp-content/uploads/flag.png">
-          <img class="mini-click-icons" tag="retweet" src="http://simpleicon.com/wp-content/uploads/retweet.png">
-          <img class="mini-click-icons" tag="like" src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/like-128.png">
-        </div>
-        <div class="tweet-divider"></div>
-      </footer>
-    </article>`)
-    return tweet;
-  } 
+  //     <footer class="tweet-footer">
+  //       <p class="post-days-ago">${tweetData.created_at}</p>
+  //       <div class="mini-icon-group">
+  //         <img class="mini-click-icons" tag="flag" src="http://simpleicon.com/wp-content/uploads/flag.png">
+  //         <img class="mini-click-icons" tag="retweet" src="http://simpleicon.com/wp-content/uploads/retweet.png">
+  //         <img class="mini-click-icons" tag="like" src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/like-128.png">
+  //       </div>
+  //       <div class="tweet-divider"></div>
+  //     </footer>
+  //   </article>`)
+  //   return tweet;
+  // } 
 
-  renderTweets(data);
+  var tweetTemplate = $('#tweet-template').html();
+  var compiledTweetTemplate = Handlebars.compile(tweetTemplate);
+  // console.log("I am compiled and Rendered: " + compiledTweetTemplate(renderTweets(data)));
+  $("#tweet-feed").html(compiledTweetTemplate(data.reverse()));
+
+  
 
 // var $tweet = createTweetElement(tweetData);
 // $('#tweet-feed').append($tweet); 

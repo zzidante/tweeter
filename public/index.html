@@ -25,6 +25,9 @@
     <!-- External JS: JQuery -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+   <!-- Handlebars -->
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
 
@@ -57,8 +60,36 @@
   <!-- Example Tweets -->
 
       <section id="tweet-feed">
-      </section>
+
+  <!-- Handlebars Template -->
+
+        <script id="tweet-template" type="text/x-handlebars-template">
+          {{#each this}}
+          <article class="new-tweet tweet-post">
+            <header class="tweet-user-info">
+              <img class="tweet-user-icon" src="{{user.avatars.regular}}">
+              <h3 class="tweet-author">{{user.name}}</h3>
+              <h6 class ="username-handle">{{user.handle}}</h6>
+            </header>
       
+            <div class="tweet-body">
+              <p>{{content.text}}</p>
+            </div>
+      
+            <footer class="tweet-footer">
+              <p class="post-days-ago">{{created_at}}</p>
+              <div class="mini-icon-group">
+                <img class="mini-click-icons" tag="flag" src="http://simpleicon.com/wp-content/uploads/flag.png">
+                <img class="mini-click-icons" tag="retweet" src="http://simpleicon.com/wp-content/uploads/retweet.png">
+                <img class="mini-click-icons" tag="like" src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/like-128.png">
+              </div>
+              <div class="tweet-divider"></div>
+            </footer>
+          </article>
+          {{/each}}
+        </script>
+
+      </section>
     </main>
 
   </body>
