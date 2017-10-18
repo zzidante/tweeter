@@ -1,14 +1,14 @@
-.tweet-article {
+article.tweet-post {
   margin-top: 5px;
   opacity: 0.8;
 }
 
-.tweet-article:hover {
+article.tweet-post:hover {
   margin-top: 5px;
   opacity: 1.0;
 }
 
-.tweet-user-icon {
+header .tweet-user-icon {
   height: 50px;
   width: 50px;
   padding: 2px 0 6px 2px;
@@ -19,13 +19,13 @@
   margin: 1% 0 1% 1%;
 }
 
-.tweet-username {
+header .tweet-author {
   float: left;
   margin-left: 10px;
   margin-top: 8px;
 }
 
-.tweet-at-name {
+header .tweet-at-name {
   float: right;
   margin-right: 8px;
   margin-top: 14px;
@@ -38,29 +38,28 @@
   padding: 18px;
 }
 
-.tweet-footer {
+footer.tweet-footer {
   border-top: 1px lightgrey solid;
   padding: 6px;
   background: white;
 }
 
-.post-days-ago {
+footer .post-days-ago {
   float: left;
   margin: 0;
   color: darkslategray;
 }
 
-.mini-icon-group {
+footer .mini-icon-group {
   opacity: 0.0;
-  float: right; 
 }
 
-.tweet-article:hover .mini-icon-group {
+.tweet-post:hover .mini-icon-group {
   opacity: 1.0;
   float: right; 
 }
 
-.mini-click-icons {
+footer .mini-click-icons {
   height: 20px;
   width: 20px;
 }
@@ -68,4 +67,3 @@
 .tweet-divider {
   clear: both;
 }
-
