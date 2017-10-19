@@ -8,11 +8,17 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.log("Failed to connect");
     throw err;
   }
-
-  // connection to test-tweets db starts here
-    // any program logic needing to use the connection
-    // needs to be invoked in here. 
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
+
+  // Mongo 'Find' all the tweets.
+  db.collection("tweets").find({}, (err, result) => {
+
+    // so much data
+    console.log("find result ", result);
+    console.log("type of find result: ", typeof result);
+  })
   db.close();
 });
 
+// a cursor is an object that will give you one item at a time (if you want).
+    // more memory efficient but less convienient than an array
