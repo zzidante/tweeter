@@ -7,12 +7,9 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
-  // Mongo 'Find' all the tweets.
-  db.collection("tweets").find({}, (err, results) => {
-
-      // we can iterate on the CURSOR to get results, one at a time
-    console.log("for each item YIELDED by cursor");
-    results.each((err, item) => console.log(" ", item));
+  // Mongo 'Find' all the tweets chaining find and convertion.
+  db.collection("tweets").find().toArray((err, results) => {
+    console.log("results array: ", results);
   })
   db.close();
 });
