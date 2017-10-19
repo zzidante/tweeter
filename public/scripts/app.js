@@ -4,6 +4,8 @@
 //  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 //  */
 
+
+
 $(function() {
    
   var data = [
@@ -53,49 +55,99 @@ $(function() {
     }
   ];
 
+  // Handlebars Helper to Convert Time to Template
+
+  Handlebars.registerHelper("momentJS", function(time) {
+    return moment(time).fromNow();
+  }); 
+  
   // Handlebars Templating to Add Tweet Feed
 
   var tweetTemplate = $('#tweet-template').html();
   var compiledTweetTemplate = Handlebars.compile(tweetTemplate);
-  $("#tweet-feed").html(compiledTweetTemplate(data.reverse()));
+  $("#tweet-feed").html(compiledTweetTemplate(data));
 
-  // Prevent Default on Tweet Submit Button
 
-  $(".new-tweet form").submit(function(event) {
+  // HTML Template Variables
+  
+  var tweetForm = $('#new-tweet-form');
+  var newTweetTextArea = $('.new-tweet textarea');
+  var newTweetErrorText = $('span.new-tweet-warning');   // why can't I use that to remove 0 length error warning?
+
+  // New Tweet Form Submission Helper Functions
+
+function addZeroTextWarning() {
+    tweetForm
+    .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>')
+};
+
+function removeZeroTextWarning() {
+  newTweetTextArea.focus(function(event) {
+    $('span.new-tweet-warning').remove();
+    $('.counter').html(140);    // remove leftover red on reset
+  });
+}
+
+function addZeroTextWarning() {
+    tweetForm
+    .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>')
+};
+
+  // New Tweet Form Submission
+  
+  tweetForm.submit(function(event) {
     event.preventDefault();
     var newTweetForm = this;
-    var newTweetPlainText = $(this).serialize();
+    var newTweetSerialize = $(this).serialize();
+    var tweetTextArea = $('.tweet-user-input').val();
 
-    $.ajax({
-      url: "/tweets",
-      method: "post",
-      data: newTweetPlainText
-    }).done(function() {
-      newTweetForm.reset();
-      // add GET request?
-    });
+  // if tweetTextArea is populated   
+
+    if (tweetTextArea.length) {
+
+  // check that length is under 140 characters
+
+      if (tweetTextArea.length > 140) {
+        tweetForm
+          .append('<span class="new-tweet-warning">Characters cannot exceed 140 characters. Try again!</span>')
+          newTweetTextArea.focus(function(event) {
+            newTweetErrorText.remove();
+          newTweetTextArea.val('');
+        });
+
+      } else {
+        $.ajax({
+          url: "/tweets",
+          method: "post",
+          data: newTweetSerialize
+        }).done(function() {     
+          newTweetForm.reset();
+          loadTweets();
+        }); 
+      }
+    } else {
+      addZeroTextWarning();
+      removeZeroTextWarning();  // add condition for empty space.
+    }
   });
 
-  // GET tweets
-
-  function loadTweets () {
-    $.ajax({
-      url: "/tweets",
-      method: "get",
-    }).done(function () {
-
-    });
-  }
-
-  
-
-
-
-
-
-
-
-
-
-
+    function loadTweets () {
+      $.ajax({
+        url: "/tweets",
+        method: "get",
+        dataType: "json"
+      }).done(function (data) {
+        $('#tweet-feed').html(compiledTweetTemplate(data));
+      });
+    }
+    loadTweets();
 });
+
+
+
+
+// The user should be given an error that their 
+// tweet content is too long or that it is not present 
+// (ideally separate messages for each scenario)
+// The form should not be cleared
+// The form should not submit

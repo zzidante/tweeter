@@ -4,6 +4,12 @@
   background-color: #eeeeee;
   margin: 0 auto;
   margin: 10px;
+  overflow: auto;
+}
+
+#new-tweet-form {
+  clear: both;
+  width: 100%;
 }
 
 .new-tweet h2 {
@@ -12,10 +18,15 @@
 }
 
 .new-tweet textarea {
+  height: 50px;
   margin: 0 0 2px 7px;
   padding: 0.5em;
   width: 96%;
-  clear: right;
+  clear: both;
+}
+
+input#new-tweet-button {
+  
 }
 
 .new-tweet .counter {
@@ -26,3 +37,11 @@
 .new-tweet input {
   margin: 0 0 12px 12px;
 }
+
+span.new-tweet-warning {
+  margin: 0px auto;
+  float: right;
+  font-size: 12px;
+  color: red;
+}
+

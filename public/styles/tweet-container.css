@@ -65,6 +65,7 @@ footer .mini-icon-group {
 }
 
 footer .mini-click-icons {
+  clear: both;
   height: 20px;
   width: 20px;
 }
