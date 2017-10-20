@@ -27,16 +27,22 @@ main {
   width: 450px;
   background: white;
   margin: 0px auto;
-  padding-top: 140px;
+  padding-top: 100px;
 }
 
 body {
   color: #244751;
   background-color: #eee;
+  margin: 0px;
 }
 
 h1 {
   margin: 0px;
+}
+
+h1#welcome-tweeter-header {
+  padding: 5px;
+  color: rgb(0, 37, 36)(255, 185, 185);
 }
 
 h3 {

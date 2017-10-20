@@ -23,3 +23,9 @@
   float: left;
   font-size: 2em;
 }
+
+nav #compose-tweet-button {
+  float: right;
+  padding: 12px;
+  margin: 18px 0px;
+}

@@ -46,11 +46,13 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button id="compose-tweet-button" type="submit">Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
+
     <main class="container">
-      <h1>Welcome to Tweeter!</h1>
+      <h1 id ="welcome-tweeter-header">Welcome to Tweeter!</h1>
 
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
@@ -63,12 +65,9 @@
       </section>
 
       <div class="tweet-divider"></div>
-  <!-- Example Tweets -->
-
-      <section id="tweet-feed">
 
   <!-- Handlebars Template -->
-
+      <section id="tweet-feed">      
         <script id="tweet-template" type="text/x-handlebars-template">
           {{#each this}}
           <article class="new-tweet tweet-post">
