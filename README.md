@@ -12,6 +12,11 @@ Hello! Welcome to Tweeter! This app uses an Express Server, JQuery Front-End (fo
 4. Go to <http://localhost:8080/> in your browser.
 5. Start up your Mongo Database info in index.js and tweet away to yourself! 
 
+## Screenshots
+
+!["Home: Compose Button On"](https://github.com/zzidante/tweeter/blob/master/Screenshots/Compose-button-toggle-on.png?raw=true)
+!["Home: Compose Button Off"](https://github.com/zzidante/tweeter/blob/master/Screenshots/Compose-button-toggle-off.png?raw=true) 
+
 ## Dependencies
 
 - Express
