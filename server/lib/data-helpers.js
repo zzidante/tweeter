@@ -15,31 +15,3 @@ module.exports = function makeDataHelpers(db) {
     }
   };
 }
-
-
-
-
-
-// db.collection("tweets").find().sort()({created_at: -1}).toArray(callback);    // Finn's code
-
-// collection.insert(thingsWeWantToInsert, function(err, result) {
-  // can do a function like console.log here
-// })
-
-
-// collection.find().toArray(function (err, result){
-  // if (result.length) {
-
-//   } else {
-//     no matches
-//   }
-// })
-
-// function getTweets(callback) {
-//   db.collection("tweets").find().toArray(callback);
-// }
-
-// getTweets((err, tweets) => {
-//   for (let tweet of tweets) {
-//     return tweet; 
-//   };

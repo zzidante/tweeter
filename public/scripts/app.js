@@ -23,17 +23,17 @@ $(function() {
 
   // New Tweet Form Submission Helper Functions
 
-function addZeroTextWarning() {
-    tweetForm
-    .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>')
-};
+  function addZeroTextWarning() {
+      tweetForm
+      .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>')
+  };
 
-function removeZeroTextWarning() {
-  newTweetTextArea.focus(function(event) {
-    $('span.new-tweet-warning').remove();
-    $('.counter').html(140);
-  });
-}
+  function removeZeroTextWarning() {
+    newTweetTextArea.focus(function(event) {
+      $('span.new-tweet-warning').remove();
+      $('.counter').html(140);
+    });
+  }
 
   function loadTweets () {
     $.ajax({
