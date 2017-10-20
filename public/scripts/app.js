@@ -103,13 +103,13 @@ function addZeroTextWarning() {
 
   // if tweetTextArea is populated   
 
-    if (tweetTextArea.length) {
+    if (tweetTextArea.length && tweetTextArea !== " ") {
 
   // check that length is under 140 characters
 
       if (tweetTextArea.length > 140) {
-        tweetForm
-          .append('<span class="new-tweet-warning">Characters cannot exceed 140 characters. Try again!</span>')
+        tweetForm 
+          .append('<span class="new-tweet-warning">Characters cannot exceed 140 characters. Try again!</span>');        
           newTweetTextArea.focus(function(event) {
             newTweetErrorText.remove();
           newTweetTextArea.val('');
