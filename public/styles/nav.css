@@ -26,9 +26,14 @@
 
 nav #compose-tweet-button {
   float: right;
-  padding: 12px;
-  margin: 18px 0px;
+  padding: 18px;
+  margin: 12px 0px;
   background: #E8FDFF;
   color: #00a087;
+  border-radius: 6px;
+  border: black solid 1px;
 }
 
+
+/* <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet"> google font for icons */
