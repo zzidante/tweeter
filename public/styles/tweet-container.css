@@ -48,12 +48,14 @@ div.tweet-body p {
 
 footer.tweet-footer {
   border-top: 1px lightgrey solid;
-  padding: 6px;
+  font-size: 12px;
+  padding: 12px 2px 3px 6px;
   background: white;
 }
 
 footer .post-days-ago {
   float: left;
+  padding-left: 4px;
   margin: 0;
   color: darkslategray;
 }

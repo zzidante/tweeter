@@ -28,4 +28,7 @@ nav #compose-tweet-button {
   float: right;
   padding: 12px;
   margin: 18px 0px;
+  background: #E8FDFF;
+  color: #00a087;
 }
+
