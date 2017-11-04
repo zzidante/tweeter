@@ -81,6 +81,8 @@ $(function() {
 
   $("#compose-tweet-button").on("click", function () {
     $("section.new-tweet").slideToggle(400);
+    newTweetTextArea.focus();
+
   })
 
 
