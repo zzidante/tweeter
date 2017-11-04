@@ -7,6 +7,10 @@
   overflow: auto;
 }
 
+#compose-new-tweet {
+  display: none;  
+}
+
 #new-tweet-form {
   clear: both;
   width: 100%;
@@ -26,7 +30,10 @@
 }
 
 input#new-tweet-button {
-  
+  background-color: #F4F4F4;
+  border: solid #CBCBCB 1px;
+  font-size: 20px;
+  padding: 4px;
 }
 
 .new-tweet .counter {

@@ -67,12 +67,15 @@ footer .mini-icon-group {
 .tweet-post:hover .mini-icon-group {
   opacity: 1.0;
   float: right; 
+  padding-right: 6px;
 }
 
 footer .mini-click-icons {
   clear: both;
-  height: 20px;
-  width: 20px;
+  font-size: 12px;
+  padding: 2px;
+  color: #00a087;
+  margin-bottom: 6px;
 }
 
 .tweet-divider {

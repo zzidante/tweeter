@@ -26,12 +26,18 @@
 
 nav #compose-tweet-button {
   float: right;
-  padding: 18px;
+  padding: 16px;
   margin: 12px 0px;
-  background: #E8FDFF;
+  background: #E8FDFF;  
   color: #00a087;
   border-radius: 6px;
   border: black solid 1px;
+}
+
+nav #compose-tweet-button:hover {
+  color: #000000;
+  background: #FFFFFF;
+
 }
 
 
