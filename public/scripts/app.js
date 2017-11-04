@@ -26,11 +26,12 @@ $(function() {
   function addZeroTextWarning() {
     if ($('.new-tweet-warning').length <= 0) {
       tweetForm
-      .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>');
+      .append('<span class="new-tweet-warning">You must have forgotten to insert some text!</span>');
     }
   };
 
   function removeZeroTextWarning() {
+    console.log("Remove function fired")
     newTweetTextArea.focus(function(event) {
       $('span.new-tweet-warning').remove();
       $('.counter').html(140);
@@ -53,11 +54,12 @@ $(function() {
         tweetForm 
           .append('<span class="new-tweet-warning">Characters cannot exceed 140 characters. Try again!</span>');  
           newTweetTextArea.focus(function(event) {
-            newTweetErrorText.remove();
-            $('.counter').html(140);
-            newTweetTextArea.val('');
-        });
+            $('span.new-tweet-warning').remove();
+          });
       } else {
+        $('.counter').html(140);
+        newTweetTextArea.val('');
+
         $.ajax({
           url: "/tweets",
           method: "post",
