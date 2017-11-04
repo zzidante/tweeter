@@ -51,11 +51,13 @@ $(function() {
   function checkIfTweetsValidPostIfYes(newTweetForm, newTweetSerialize, tweetTextArea) {
     if (tweetTextArea.length && tweetTextArea !== " ") {
       if (tweetTextArea.length > 140) {
-        tweetForm 
-          .append('<span class="new-tweet-warning">Characters cannot exceed 140 characters. Try again!</span>');  
-          newTweetTextArea.focus(function(event) {
-            $('span.new-tweet-warning').remove();
-          });
+        if ($('.new-tweet-warning').length <= 0) {          
+          tweetForm 
+            .append('<span class="new-tweet-warning">Characters cannot exceed 140 characters. Try again!</span>');  
+            newTweetTextArea.focus(function(event) {
+              $('span.new-tweet-warning').remove();
+            });
+          }
       } else {
         $('.counter').html(140);
         newTweetTextArea.val('');
