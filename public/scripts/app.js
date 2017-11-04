@@ -24,8 +24,10 @@ $(function() {
   // New Tweet Form Submission Helper Functions
 
   function addZeroTextWarning() {
+    if ($('.new-tweet-warning').length <= 0) {
       tweetForm
-      .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>')
+      .append('<span class="new-tweet-warning">You must have forgotten to insert some text! Try again!</span>');
+    }
   };
 
   function removeZeroTextWarning() {
